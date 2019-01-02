@@ -1,11 +1,12 @@
 jQuery(window).on("load", function() {
+  
+});
+jQuery(document).ready(function() {
   jQuery(".video-block").each(function(index, item) {
     jQuery(this).attr("id", "video" + index);
   });
-});
-jQuery(document).ready(function() {
-  jQuery(".video-block").each(function(index) {
-    let viemo_player = new Vimeo.Player("video" + index);
+  jQuery(".video-block").each(function(index, element) {
+    let viemo_player = new Vimeo.Player(element);
     viemo_player.ready().then(function() {
       viemo_player.setVolume(0);
     });

@@ -1,7 +1,6 @@
 jQuery(window).on("load", function() {
-  
-});
-jQuery(document).ready(function() {
+  // });
+  // jQuery(document).ready(function() {
   jQuery(".video-block").each(function(index, item) {
     jQuery(this).attr("id", "video" + index);
   });
@@ -9,6 +8,7 @@ jQuery(document).ready(function() {
     let viemo_player = new Vimeo.Player(element);
     viemo_player.ready().then(function() {
       viemo_player.setVolume(0);
+      viemo_player.pause();
     });
     $(this).viewportChecker({
       classToAdd: "js-visible",
@@ -20,25 +20,21 @@ jQuery(document).ready(function() {
             .then(function() {
               // the video was played
             })
-            .catch(function(error) {
-            });
+            .catch(function(error) {});
         } else {
-
           viemo_player
             .pause()
             .then(function() {
               // the video was paused
             })
-            .catch(function(error) {
-            });
+            .catch(function(error) {});
 
           viemo_player
             .setCurrentTime(0)
             .then(function() {
               // the video was paused
             })
-            .catch(function(error) {
-            });
+            .catch(function(error) {});
         }
       }
     });
